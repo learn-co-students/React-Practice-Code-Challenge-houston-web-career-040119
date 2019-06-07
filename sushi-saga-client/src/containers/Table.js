@@ -10,18 +10,20 @@ const Table = (props) => {
 
   return (
     <Fragment>
-      <h1 className="remaining">
-        You have: ${ /* Give me how much money I have left */ } remaining!
+      <div className="remaining">
+      <h1>
+        You have: ${props.moneyLeft} remaining!
       </h1>
+    <form onSubmit={props.addMonies}>
+        <h2>Add to balance: $<input type={"number"} defaultValue={"0"} min={"0"} step={"1"} style={{fontSize:"15pt"}} />
+         <input style={{fontSize:"15pt"}} type="submit" value="Add" /></h2>
+      </form>
+      </div>
       <div className="table">
+          
         <div className="stack">
           {
-            /* 
-               renderPlates takes an array 
-               and renders an empty plate
-               for every element in the array
-            */
-            renderPlates([])
+            renderPlates(props.sushis.filter(sushi => sushi.eaten))
           }
         </div>
       </div>
