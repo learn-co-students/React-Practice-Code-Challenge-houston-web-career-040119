@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
-
-const Table = (props) => {
+const Table = ({ money }) => {
 
   const renderPlates = (array) => {
     return array.map((x, index) => {
+      console.log(x)
       return <div className="empty-plate" style={{ top: -7 * index }}/>
     })
   }
@@ -11,7 +11,7 @@ const Table = (props) => {
   return (
     <Fragment>
       <h1 className="remaining">
-        You have: ${ /* Give me how much money I have left */ } remaining!
+        You have: ${money} remaining!
       </h1>
       <div className="table">
         <div className="stack">
